@@ -518,15 +518,15 @@ dairy_model <- function(x, varnames) {
   
   ## Profits no agroforestry
   profit_no_AF_final <- benefits_milk_no_AF - costs_milk_no_AF
-
-  animal_welfare_no_AF   <- # Stress to the ainimal
     
   ## Profits agroforestry ####
   profit_AF_final_poplar <-  (benefits_milk_AF - costs_milk_AF) + 
     (benefits_poplar - costs_poplar)
   
+  decision_silvopastoral_AF <- profit_AF_final_poplar - profit_no_AF_final
+  
   # Net present value (NPV) ####
-  NPV_AF_poplar <- discount(profit_AF_final_poplar - profit_no_AF_final,
+  NPV_AF_poplar <- discount(decision_silvopastoral_AF,
                                    discount_rate,
                                    calculate_NPV = TRUE)
   
@@ -546,7 +546,7 @@ dairy_model <- function(x, varnames) {
   return(
     list(
       NPV_AF_poplar = NPV_AF_poplar,
-      Cashflow_AF = profit_AF_final_poplar,
+      Cashflow_AF = decision_silvopastoral_AF,
       ecological_AF_effect = sum(ecological_AF_diff),
       Annual_ecology_effect = ecological_AF_diff,
       animal_welfare_effect = sum(animal_welfare_effect),
