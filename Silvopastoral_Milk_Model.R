@@ -229,36 +229,34 @@ dairy_model <- function(x, varnames) {
   other_costs_field <-  vv(other_costs_field_ha, var_CV, n_years) *
     production_area
   
-  
-  #### Labor costs
+  #### Labor costs on grass
   labor_costs_no_AF <-  vv(labor_costs_ha, var_CV, n_years) *
     production_area
-  
-  labor_costs_AF <- (labor_costs_no_AF +
-                       labor_costs_no_AF *
-                       AF_on_labor_costs) *
-    grass_area
-  
-  
-  contractor_machinery_rent_costs <-  vv(contractor_machinery_rent_costs_ha, var_CV, n_years) *
+  # less grass to work on
+  labor_costs_AF <- (labor_costs_no_AF) * (production_area - grass_area)
+
+  contractor_machinery_rent_costs <-  vv(contractor_machinery_rent_costs_ha, 
+                                         var_CV, n_years) *
     production_area
   
-  fuels_lubricants_costs <- vv(fuels_lubricants_costs_ha, var_CV, n_years) *
+  fuels_lubricants_costs <- vv(fuels_lubricants_costs_ha, 
+                               var_CV, n_years) *
     production_area
   
-  machinery_upkeep_costs <-  vv(machinery_upkeep_costs_ha, var_CV, n_years) *
+  machinery_upkeep_costs <-  vv(machinery_upkeep_costs_ha, 
+                                var_CV, n_years) *
     production_area
   
-  insurances_costs <- vv(insurances_costs_ha, var_CV, n_years) *
+  insurances_costs <- vv(insurances_costs_ha, 
+                         var_CV, n_years) *
     production_area
   
-  other_costs_operation <-  vv(other_costs_operation_ha, var_CV, n_years) *
+  other_costs_operation <-  vv(other_costs_operation_ha, 
+                               var_CV, n_years) *
     production_area
   
   depreciation <- vv(depreciation_ha, var_CV, n_years) *
     production_area
-  
-  
   
   ### Costs produced milk ####   
   # potential milk production instead of produced_milk_t_AF produced_milk_t_no_AF####
@@ -291,9 +289,6 @@ dairy_model <- function(x, varnames) {
   
   building_upkeep_costs <-  vv(building_upkeep_costs_t_milk, var_CV, n_years) *
     milk_t_ha_pot * production_area
-  
-  
-  
   
   ### Adding up costs milk ####
   costs_milk_no_AF <- land_costs +
@@ -342,52 +337,64 @@ dairy_model <- function(x, varnames) {
   ### Costs production area tree ####
   
   #### AF planning costs
-  planning_costs <- c(vv(AF_planning_costs, var_CV, 1), rep(0, (n_years - 1))) + # Y1
+  planning_costs <- c(vv(AF_planning_costs, var_CV, 1), 
+                      rep(0, (n_years - 1))) + # Y1
     c(vv(AF_area_on_AF_planning_costs, var_CV, 1), rep(0, (n_years - 1))) *
     log(production_area) 
   # production_area log() is fine minimum area is >= 5 so no issues with x <=1
   
   #### Tillage costs before planting
-  tillage_costs <-  c(vv(tillage_costs_ha, var_CV, 1), rep(0, (n_years - 1))) * # Y1
+  tillage_costs <-  c(vv(tillage_costs_ha, var_CV, 1), 
+                      rep(0, (n_years - 1))) * # Y1
     agroforestry_area
   
-  tillage_planting_preparation_costs <- c(vv(tillage_planting_preparation_costs_ha, var_CV, 1),
+  tillage_planting_preparation_costs <- c(vv(tillage_planting_preparation_costs_ha, 
+                                             var_CV, 1),
                                           rep(0, (n_years - 1))) * # Y1
     agroforestry_area
   
   #### Weed control in 1st year
-  weed_control_costs <- c(vv(weed_control_costs_ha, var_CV, 1), rep(0, (n_years - 1))) * # Y1
+  weed_control_costs <- c(vv(weed_control_costs_ha, var_CV, 1), 
+                          rep(0, (n_years - 1))) * # Y1
     agroforestry_area
   
   #### Seed costs
-  seedling_costs_popplar_10_20Y <-  c(vv(seedlings_ha_poplar_10_20Y, var_CV, 1), rep(0, (n_years - 1))) * # Y1
+  seedling_costs_popplar_10_20Y <-  c(vv(seedlings_ha_poplar_10_20Y, var_CV, 1), 
+                                      rep(0, (n_years - 1))) * # Y1
     agroforestry_area *
     c(vv(seedling_price_poplar_0.2m, var_CV, 1), rep(0, (n_years - 1)))
   
   #### Planting costs
-  planting_costs_mechanical <-  c(vv(planting_costs_ha_mechanical, var_CV, 1), rep(0, (n_years - 1))) * # Y1
+  planting_costs_mechanical <-  c(vv(planting_costs_ha_mechanical, var_CV, 1), 
+                                  rep(0, (n_years - 1))) * # Y1
     agroforestry_area
   
   #### Fencing costs
-  fence_construction_costs <- c(vv(fence_construction_costs_ha, var_CV, 1), rep(0, (n_years - 1))) * # Y1
+  fence_construction_costs <- c(vv(fence_construction_costs_ha, var_CV, 1), 
+                                rep(0, (n_years - 1))) * # Y1
     agroforestry_area
   
   #### Tree upkeep costs in 1st year
-  tree_upkeep_costs_1stY <- c(vv(tree_upkeep_costs_ha_1stY, var_CV, 1), rep(0, (n_years - 1))) * # Y1
+  tree_upkeep_costs_1stY <- c(vv(tree_upkeep_costs_ha_1stY, var_CV, 1), 
+                              rep(0, (n_years - 1))) * # Y1
     agroforestry_area
   
   #### Tree upkeep costs after 1st year
-  tree_upkeep_costs_after_1stY <- c(0, vv(tree_upkeep_costs_ha_after_1stY, var_CV, n_years - 1)) *
+  tree_upkeep_costs_after_1stY <- c(0, vv(tree_upkeep_costs_ha_after_1stY, 
+                                          var_CV, n_years - 1)) *
     agroforestry_area
   
   #### Harvest costs
-  cutting_costs <-  vv(cutting_costs_taDM, var_CV, n_years) * # Depending on the interval
+  cutting_costs <-  vv(cutting_costs_taDM, var_CV, n_years) * 
+    # Depending on the interval
     produced_poplar_MS
   
-  chopping_costs <- vv(chopping_costs_taDM, var_CV, n_years) * # Depending on the interval
+  chopping_costs <- vv(chopping_costs_taDM, var_CV, n_years) * 
+    # Depending on the interval
     produced_poplar_MS
   
-  storage_costs_35perc <- vv(storage_costs_35perc_taDM, var_CV, n_years) * # Depending on the interval
+  storage_costs <- vv(storage_costs_taDM, var_CV, n_years) * 
+    # Depending on the interval
     produced_poplar_MS
   
   #### Reconversion costs after the last year
@@ -396,7 +403,7 @@ dairy_model <- function(x, varnames) {
   
   ### Adding up costs tree ####
   
-  costs_poplar_35perc <-  planning_costs +
+  costs_poplar <-  planning_costs +
     tillage_costs +
     tillage_planting_preparation_costs +
     weed_control_costs +
@@ -407,9 +414,8 @@ dairy_model <- function(x, varnames) {
     tree_upkeep_costs_after_1stY +
     cutting_costs +
     chopping_costs +
-    storage_costs_35perc +
+    storage_costs +
     reconversion_cost
-  
   
   # Benefits ####
   
@@ -419,7 +425,6 @@ dairy_model <- function(x, varnames) {
   basic_subsidies_benefits <- vv(basic_subsidies_ha, var_CV, n_years) *
     production_area
   
-  
   ### Benefits produced milk ####
   milk_sales_benefits_no_AF <-  vv(milk_price_t, var_CV, n_years) *
     produced_milk_t_no_AF
@@ -427,13 +432,9 @@ dairy_model <- function(x, varnames) {
   milk_sales_benefits_AF <- vv(milk_price_t, var_CV, n_years) *
     produced_milk_t_AF
   
-  other_animal_products_benefits <- vv(other_animal_products_t_milk, var_CV, n_years) *
+  other_animal_products_benefits <- vv(other_animal_products_t_milk, 
+                                       var_CV, n_years) *
     produced_milk_t_no_AF
-  
-  
-  
-  
-  
   
   ### Adding up benefits milk ####
   benefits_milk_no_AF <-  basic_subsidies_benefits +
@@ -444,8 +445,6 @@ dairy_model <- function(x, varnames) {
     milk_sales_benefits_AF +
     other_animal_products_benefits
   
-  
-  
   ## Benefits tree production ####
   
   ### Benefits production area tree ####
@@ -453,12 +452,12 @@ dairy_model <- function(x, varnames) {
     agroforestry_area
   
   ### Benefits produced wood chips ####
-  wood_chips_sales_benefits_35perc <- vv(wood_chips_price_t_35perc, var_CV, n_years) *
-    (produced_poplar_MS / (1 - residual_moisture_35perc))
+  wood_chips_sales_benefits <- vv(wood_chips_price_t, var_CV, n_years) *
+    (produced_poplar_MS / (1 - residual_moisture))
   
   ### Adding up benefits tree ####
-  benefits_poplar_35perc <- agroforestry_subsidies +
-    wood_chips_sales_benefits_35perc
+  benefits_poplar <- agroforestry_subsidies +
+    wood_chips_sales_benefits
   
   # Ecological Aspects ####
   
@@ -505,60 +504,46 @@ dairy_model <- function(x, varnames) {
     carbon_storage_AF  +
     biodiversity_aesthetics_AF) - nutrient_loss_costs_AF
   
-  
-  
   # Profits ####
+  # livelihoods (income diverse)
   
-  ## Profits no agroforestry ####
-  profit_no_AF <- benefits_milk_no_AF - costs_milk_no_AF
-  
-  profit_no_AF_final <- 
-    profit_no_AF 
+  ## Profits no agroforestry
+  profit_no_AF_final <- benefits_milk_no_AF - costs_milk_no_AF
 
-  ecological_no_AF <- ecological_aspects_no_AF
-
-  
+  animal_welfare_no_AF   <- # Stress to the ainimal
+    
   ## Profits agroforestry ####
-  profit_AF_poplar_35perc <-  benefits_milk_AF - costs_milk_AF + benefits_poplar_35perc - costs_poplar_35perc
-  
-  profit_AF_final_poplar_35perc <- 
-    profit_AF_poplar_35perc
-  
-  ecological_AF <-     ecological_aspects_AF
-  
-  animal_welfare <- stress
+  profit_AF_final_poplar <-  benefits_milk_AF - costs_milk_AF + benefits_poplar - costs_poplar
   
   # Net present value (NPV) ####
-  NPV_no_AF <-  discount(profit_no_AF_final, discount_rate, calculate_NPV = TRUE)
-  
-  NPV_AF_poplar_35perc <- discount(profit_AF_final_poplar_35perc,
+  NPV_AF_poplar <- discount(profit_AF_final_poplar - profit_no_AF_final,
                                    discount_rate,
                                    calculate_NPV = TRUE)
   
+  # Ecology ####
   
-  # Eu should xyz with policy support If they want more trees on farms.. 
-  # Researchers should xyz if they want models that realistically reflect decision contexts, 
-  # farmers should xyz 
-  # animal welfare, 
-  # livelihoods (income diverse)
-  # Ecology
+  # Ecological effects ####
+  ecological_AF_diff <- ecological_aspects_no_AF - ecological_aspects_AF
+ 
+  ## Animal welfare effects ####
+  # Stress to the animal THI as a proxy
+  animal_welfare_no_AF <- milk_reduction_stress_kg_cow_no_AF #THI_table_stress_sum_no_AF * milk_reduction_THI_kg_cow_day
+  animal_welfare_AF <- milk_reduction_stress_kg_cow_AF #THI_table_stress_sum_AF * milk_reduction_THI_kg_cow_day
   
+
   # Return ####
   return(
     list(
-      NPV_no_AF = NPV_no_AF,
-      NPV_AF = NPV_AF_poplar_35perc,
-      NPV_decision_do = NPV_AF_poplar_35perc - NPV_no_AF,
-      Cashflow_no_AF = profit_no_AF_final,
-      Cashflow_AF = profit_AF_final_poplar_35perc,
-      Cashflow_decision_do = profit_AF_final_poplar_35perc - profit_no_AF_final
+      NPV_AF_poplar = NPV_AF_poplar,
+      Cashflow_AF = profit_AF_final_poplar,
+      Annual_ecology_effect = ecological_AF_diff,
+      ecological_AF_effect = sum(ecological_AF_diff)
     )
   )
   
   
   
 }  # End function
-
 
 # Monte Carlo simulation ####
 dairy_mc_simulation <- mcSimulation(
