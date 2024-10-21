@@ -76,7 +76,8 @@ dairy_model <- function(x, varnames) {
   
   cows_ha_AF <- cows_ha_pot * grass_yield_fac_AF
   
-  ## Milk per hectare potential as rep() so the potential of the herd is the same for the years in a run
+  ## Milk per hectare potential as rep() 
+  # so the potential of the herd is the same for the years in a run
   milk_t_cow <-  c(rep(vv(milk_production_t_cow_a, var_CV, 1), n_years))
   
   milk_t_ha_pot <- milk_t_cow * cows_ha_pot
@@ -88,10 +89,13 @@ dairy_model <- function(x, varnames) {
   #milk_t_pot_AF <- milk_t_ha_pot * grass_area
   
   
-  milk_t_ha_pot_loss_comp <- milk_t_ha_pot * (1 + vv(milk_loss_incl_production_perc, var_CV, n_years)) # The data of milk yield, is current production data, losses modeled included
+  milk_t_ha_pot_loss_comp <- milk_t_ha_pot * (1 + vv(milk_loss_incl_production_perc, 
+                                                     var_CV, n_years)) 
+  # The data of milk yield, is current production data, losses modeled included
   
   
   ## Milk production from grazing
+  # potential (pot)
   milk_grazing_perc <- vv(milk_production_grazing_perc, var_CV, 1)
   
   milk_t_ha_grazing_pot <-  milk_t_ha_pot_loss_comp *
@@ -102,12 +106,14 @@ dairy_model <- function(x, varnames) {
     milk_t_ha_grazing_pot
   
   ## Poplar per hectare potential
-  yield_poplar_MS_taDM_ha_pot <-  vv(yield_poplar_MS_taDM_ha_a, var_CV, n_years) # Using medium sight conditions, moderate or bad soil condition but moderate or much rain, long periods with no rain have a great effect
+  yield_poplar_MS_taDM_ha_pot <-  vv(yield_poplar_MS_taDM_ha_a, 
+                                     var_CV, n_years) # Using medium sight conditions, moderate or bad soil condition but moderate or much rain, long periods with no rain have a great effect
   
   # Heat stress + AF on heat stress Tables ####
   
   source("functions/create_heat_stress_tables.R")
-  create_heat_stress_tables_result <- create_heat_stress_tables(var_CV = var_CV, n_years = n_years)
+  create_heat_stress_tables_result <- create_heat_stress_tables(var_CV = var_CV, 
+                                                                n_years = n_years)
   
   heat_table_1 <- create_heat_stress_tables_result$heat_table_1
   heat_table_no_AF_1 <- create_heat_stress_tables_result$heat_table_no_AF_1
@@ -115,7 +121,8 @@ dairy_model <- function(x, varnames) {
   ## Heat stress days AF Tables ####
   
   source("functions/create_af_heat_stress_tables.R")
-  create_af_heat_stress_tables_result <- create_af_heat_stress_tables(var_CV = var_CV, n_years = n_years)
+  create_af_heat_stress_tables_result <- create_af_heat_stress_tables(var_CV = var_CV, 
+                                                                      n_years = n_years)
   
   heat_table_AF <- create_af_heat_stress_tables_result$heat_table_AF
   heat_table_no_AF <- create_af_heat_stress_tables_result$heat_table_no_AF
@@ -123,14 +130,16 @@ dairy_model <- function(x, varnames) {
   ## Thermal Heat Index (THI) Tables ####
   
   source("functions/create_THI_tables.R")
-  create_THI_tables_result <- create_THI_tables(var_CV = var_CV, n_years = n_years)
+  create_THI_tables_result <- create_THI_tables(var_CV = var_CV, 
+                                                n_years = n_years)
   
   THI_table_stress_sum_no_AF <- create_THI_tables_result$THI_table_stress_sum_no_AF
   THI_table_stress_sum_AF <- create_THI_tables_result$THI_table_stress_sum_AF
   
   ### Milk reduction Thermal Heat Index (THI)
   
-  milk_reduction_THI_kg_cow_day <- vv(milk_reduction_heat_THI_kg_cow_day, var_CV, n_years)
+  milk_reduction_THI_kg_cow_day <- vv(milk_reduction_heat_THI_kg_cow_day, 
+                                      var_CV, n_years)
   
   milk_reduction_stress_kg_cow_no_AF <- THI_table_stress_sum_no_AF * milk_reduction_THI_kg_cow_day
   milk_reduction_stress_kg_cow_AF <- THI_table_stress_sum_AF * milk_reduction_THI_kg_cow_day
@@ -513,7 +522,8 @@ dairy_model <- function(x, varnames) {
   animal_welfare_no_AF   <- # Stress to the ainimal
     
   ## Profits agroforestry ####
-  profit_AF_final_poplar <-  benefits_milk_AF - costs_milk_AF + benefits_poplar - costs_poplar
+  profit_AF_final_poplar <-  (benefits_milk_AF - costs_milk_AF) + 
+    (benefits_poplar - costs_poplar)
   
   # Net present value (NPV) ####
   NPV_AF_poplar <- discount(profit_AF_final_poplar - profit_no_AF_final,
@@ -530,18 +540,19 @@ dairy_model <- function(x, varnames) {
   animal_welfare_no_AF <- milk_reduction_stress_kg_cow_no_AF #THI_table_stress_sum_no_AF * milk_reduction_THI_kg_cow_day
   animal_welfare_AF <- milk_reduction_stress_kg_cow_AF #THI_table_stress_sum_AF * milk_reduction_THI_kg_cow_day
   
+  animal_welfare_effect <- animal_welfare_AF - animal_welfare_no_AF
 
   # Return ####
   return(
     list(
       NPV_AF_poplar = NPV_AF_poplar,
       Cashflow_AF = profit_AF_final_poplar,
+      ecological_AF_effect = sum(ecological_AF_diff),
       Annual_ecology_effect = ecological_AF_diff,
-      ecological_AF_effect = sum(ecological_AF_diff)
+      animal_welfare_effect = sum(animal_welfare_effect),
+      Annual_animal_welfare_effect = animal_welfare_effect
     )
   )
-  
-  
   
 }  # End function
 
@@ -549,7 +560,7 @@ dairy_model <- function(x, varnames) {
 dairy_mc_simulation <- mcSimulation(
   estimate = as.estimate(input_table),
   model_function = dairy_model,
-  numberOfModelRuns = 10000,
+  numberOfModelRuns = 100,
   functionSyntax = "plainNames"
 )
 
