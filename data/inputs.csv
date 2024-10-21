@@ -1,0 +1,224 @@
+variable,lower,median,upper,distribution,label,Description
+n_years,30,NA,30,const,Period of consideration,Period of consideration (years) 
+var_CV,5,NA,25,posnorm,Covariance (%),Covariance (%) 
+discount_rate,2,NA,5,posnorm,Discount rate (%),Discount rate (%) 
+production_area,10,NA,10,const,Production area,Production area (ha) 
+area,5,NA,50,posnorm,Area for agroforestry system,Area for agroforestry system (ha) 
+AF_planning_costs,200,NA,1000,posnorm,Planning costs AF (base),Planning costs AF (base) (EUR) 
+AF_area_on_AF_planning_costs,10,NA,100,posnorm,Planning costs AF (area-based),Planning costs AF (area-based) (EUR/ha) 
+seedling_price_poplar_0.2m,0.15,NA,0.2908,posnorm,Price of cuttings 0.2 m poplar,Price of cuttings 0.2 m poplar (EUR/tree) 
+seedlings_ha_poplar_10_20Y,2500,NA,3333,posnorm,Planting density KU 10 to 20 years poplar,Planting density KU 10 to 20 years poplar (Trees/ha) 
+planting_costs_ha_mechanical,340,NA,800,posnorm,Planting price KU (mechanical),Planting price KU (mechanical) (EUR/ha) 
+tillage_costs_ha,59,NA,114,posnorm,Soil preparation,Soil preparation (EUR/ha) 
+tillage_planting_preparation_costs_ha,20,NA,49,posnorm,Seedbed preparation,Seedbed preparation (EUR/ha) 
+weed_control_costs_ha,36,NA,60,posnorm,Weed control,Weed control (EUR/ha) 
+agroforestry_area_percentage,0.05,NA,0.25,tnorm_0_1,AF area share,AF area share (%) 
+fence_construction_costs_ha,650,NA,1500,posnorm,Cost of fencing work,Cost of fencing work (EUR/ha) 
+tree_upkeep_costs_ha_1stY,44,NA,179,posnorm,Maintenance costs KU year 1,Maintenance costs KU year 1 (EUR/ha) 
+tree_upkeep_costs_ha_after_1stY,5,NA,10,posnorm,Maintenance costs KU after year 1,Maintenance costs KU after year 1 (EUR/ha) 
+reconversion_cost_ha,269,NA,2550,posnorm,Reversion,Reversion (EUR/ha) 
+yield_poplar_MS_taDM_ha_a,6,NA,12,posnorm,Yield KU poplar MS,Yield KU poplar MS (tons of dry matter ha/yr (taDM/ha*a)) 
+yield_poplar_GS_taDM_ha_a,10,NA,15,posnorm,Yield KU poplar GS,Yield KU poplar GS (tons of dry matter ha/yr (taDM/ha*a)) 
+harvest_interval,10,NA,10,const,Harvest interval,Harvest interval (years) 
+cutting_costs_taDM,20,NA,30,posnorm,Cost of felling,Cost of felling (EUR/ton) 
+chopping_costs_taDM,25,NA,35,posnorm,Cost of chipping,Cost of chipping (EUR/ton) 
+residual_moisture_35perc,0.35,NA,0.35,const,Residual moisture 35%,Residual moisture 35% (EUR/ton) 
+storage_costs_35perc_taDM,20,NA,35,posnorm,Storage cost until residual moisture 35%,Storage cost until residual moisture 35% (EUR/ton) 
+wood_chips_price_t_35perc,74,NA,119,posnorm,Price of wood chips KU 35% residual moisture,Price of wood chips KU 35% residual moisture (EUR/ha) 
+agroforestry_subsidies_ha,200,NA,200,const,Agroforestry subsidy,Agroforestry subsidy (EUR/ha) 
+land_lease_price_ha,180,NA,620,posnorm,Lease prices,Lease prices (EUR/ha) 
+seed_costs_ha,45,NA,75,posnorm,Seed,Seed (EUR/ha) 
+fertilizer_costs_ha,72,NA,145,posnorm,Fertilizer,Fertilizer (EUR/ha) 
+pesticide_cost_ha,21,NA,44,posnorm,Plant protection products,Plant protection products (EUR/ha) 
+other_costs_field_ha,19.5,NA,25.6,posnorm,Other costs feed production,Other costs feed production (EUR/ton) 
+veterinary_costs_t_milk,11.5,NA,16.2,posnorm,Increase in veterinary costs due to heat stress,Increase in veterinary costs due to heat stress (EUR/ton) 
+insemination_costs_t_milk,5.2,NA,6.6,posnorm,Insemination,Insemination (EUR/ton) 
+other_costs_milk_t_milk,12.5,NA,17,posnorm,Other costs milk production,Other costs milk production (EUR/ton) 
+animal_purchase_costs_t_milk,3.5,NA,13,posnorm,Purchase of livestock,Purchase of livestock (EUR/ton) 
+feed_purchase_costs_t_milk,85,NA,95,posnorm,Purchase of feed,Purchase of feed (EUR/ton) 
+energy_water_costs_t_milk,13,NA,20.6,posnorm,"Heating, electricity, and water","Heating, electricity, and water (EUR/ton) "
+building_upkeep_costs_t_milk,4.9,NA,10.5,posnorm,Maintenance of buildings,Maintenance of buildings (EUR/ha) 
+labor_costs_ha,166,NA,205,posnorm,Personnel costs,Personnel costs (%) 
+AF_on_labor_costs,0.02,NA,0.1,tnorm_0_1,AF influence on personnel costs,AF influence on personnel costs (EUR/ha) 
+contractor_machinery_rent_costs_ha,202,NA,280,posnorm,Contract labor and machine rental,Contract labor and machine rental (EUR/ha) 
+fuels_lubricants_costs_ha,131,NA,222,posnorm,Fuel and lubricants,Fuel and lubricants (EUR/ha) 
+machinery_upkeep_costs_ha,125,NA,230,posnorm,Maintenance of machinery,Maintenance of machinery (EUR/ha) 
+insurances_costs_ha,79,NA,139,posnorm,Operational insurance,Operational insurance (EUR/ha) 
+other_costs_operation_ha,400,NA,612,posnorm,Other operational costs,Other operational costs (EUR/ha) 
+depreciation_ha,422,NA,553,posnorm,Depreciation,Depreciation (Cows/ha) 
+cows_ha,0.9,NA,1.3,posnorm,Cows per hectare,Cows per hectare (tons/cow/year) 
+milk_production_t_cow_a,7,NA,11.5,posnorm,Milk yield per cow,Milk yield per cow (%) 
+milk_loss_incl_production_perc,0.02,NA,0.05,tnorm_0_1,Milk loss,Milk loss (%) 
+milk_production_grazing_perc,0.2,NA,0.25,posnorm,Share of milk yield from grazing,Share of milk yield from grazing (EUR/ton) 
+milk_price_t,320,NA,550,posnorm,Milk price,Milk price (EUR/ton) 
+other_animal_products_t_milk,44.4,NA,51.4,posnorm,Other animal products,Other animal products (EUR/ha) 
+basic_subsidies_ha,158,NA,158,const,Income basis,Income basis (%) 
+drought_chance,0.1,NA,0.3,tnorm_0_1,Drought probability,Drought probability (%) 
+drought_effect,0.5,NA,0.8,tnorm_0_1,Relative yield during drought,Relative yield during drought (%) 
+drought_effect_milk_production,0.7,NA,0.85,tnorm_0_1,Relative milk yield during drought without AF,Relative milk yield during drought without AF (%) 
+AF_on_drought_effect_milk_production,0.02,NA,0.25,tnorm_0_1,Relative milk yield during drought AF,Relative milk yield during drought AF (%) 
+drought_effect_poplar_production,0.6,NA,0.8,tnorm_0_1,Relative poplar yield during drought AF,Relative poplar yield during drought AF (%) 
+drought_effect_poplar_died_chance_1stY,0.1,NA,0.3,tnorm_0_1,Probability of poplar dying year 1,Probability of poplar dying year 1 (%) 
+drought_effect_poplar_died_chance_after_1stY,0.1,NA,0.5,tnorm_0_1,Probability of poplar dying after year 1,Probability of poplar dying after year 1 (%) 
+drought_effect_poplar_died_perc_1stY,0.01,NA,0.1,tnorm_0_1,Share of poplar dying year 1,Share of poplar dying year 1 (%) 
+drought_effect_poplar_died_perc_after_1stY,0.05,NA,0.3,tnorm_0_1,Share of poplar dying after year 1,Share of poplar dying after year 1 (%) 
+drought_effect_poplar_died_yield_effect_perc,0.2,NA,0.4,tnorm_0_1,Factor of yield loss due to share of poplar dying,Factor of yield loss due to share of poplar dying (%) 
+drought_effect_seed_costs_next_year,0.1,NA,0.4,tnorm_0_1,Increase in seed costs after a drought,Increase in seed costs after a drought (%) 
+heat_stress_days_25GC_2025,2,NA,11,norm,Heat stress days in 2023-2027 25GC,Heat stress days in 2023-2027 25GC (days/yr at this temp) From CMIP 6
+heat_stress_days_26GC_2025,1,NA,9,norm,Heat stress days in 2023-2027 26GC,Heat stress days in 2023-2027 26GC (days/yr at this temp) From CMIP 6
+heat_stress_days_27GC_2025,1,NA,8,norm,Heat stress days in 2023-2027 27GC,Heat stress days in 2023-2027 27GC (days/yr at this temp) From CMIP 6
+heat_stress_days_28GC_2025,0,NA,7,norm,Heat stress days in 2023-2027 28GC,Heat stress days in 2023-2027 28GC (days/yr at this temp) From CMIP 6
+heat_stress_days_29GC_2025,0,NA,5,norm,Heat stress days in 2023-2027 29GC,Heat stress days in 2023-2027 29GC (days/yr at this temp) From CMIP 6
+heat_stress_days_30GC_2025,0,NA,4,norm,Heat stress days in 2023-2027 30GC,Heat stress days in 2023-2027 30GC (days/yr at this temp) From CMIP 6
+heat_stress_days_31GC_2025,0,NA,3,norm,Heat stress days in 2023-2027 31GC,Heat stress days in 2023-2027 31GC (days/yr at this temp) From CMIP 6
+heat_stress_days_32GC_2025,0,NA,3,norm,Heat stress days in 2023-2027 32GC,Heat stress days in 2023-2027 32GC (days/yr at this temp) From CMIP 6
+heat_stress_days_33GC_2025,0,NA,2,norm,Heat stress days in 2023-2027 33GC,Heat stress days in 2023-2027 33GC (days/yr at this temp) From CMIP 6
+heat_stress_days_34GC_2025,0,NA,1,norm,Heat stress days in 2023-2027 34GC,Heat stress days in 2023-2027 34GC (days/yr at this temp) From CMIP 6
+heat_stress_days_35GC_2025,0,NA,1,norm,Heat stress days in 2023-2027 35GC,Heat stress days in 2023-2027 35GC (days/yr at this temp) From CMIP 6
+heat_stress_days_36GC_2025,0,NA,1,norm,Heat stress days in 2023-2027 36GC,Heat stress days in 2023-2027 36GC (days/yr at this temp) From CMIP 6
+heat_stress_days_25GC_2030,2,NA,12,norm,Heat stress days in 2028-2032 25GC,Heat stress days in 2028-2032 25GC (days/yr at this temp) From CMIP 6
+heat_stress_days_26GC_2030,2,NA,9,norm,Heat stress days in 2028-2032 26GC,Heat stress days in 2028-2032 26GC (days/yr at this temp) From CMIP 6
+heat_stress_days_27GC_2030,1,NA,8,norm,Heat stress days in 2028-2032 27GC,Heat stress days in 2028-2032 27GC (days/yr at this temp) From CMIP 6
+heat_stress_days_28GC_2030,0,NA,7,norm,Heat stress days in 2028-2032 28GC,Heat stress days in 2028-2032 28GC (days/yr at this temp) From CMIP 6
+heat_stress_days_29GC_2030,0,NA,6,norm,Heat stress days in 2028-2032 29GC,Heat stress days in 2028-2032 29GC (days/yr at this temp) From CMIP 6
+heat_stress_days_30GC_2030,0,NA,4,norm,Heat stress days in 2028-2032 30GC,Heat stress days in 2028-2032 30GC (days/yr at this temp) From CMIP 6
+heat_stress_days_31GC_2030,0,NA,3,norm,Heat stress days in 2028-2032 31GC,Heat stress days in 2028-2032 31GC (days/yr at this temp) From CMIP 6
+heat_stress_days_32GC_2030,0,NA,2,norm,Heat stress days in 2028-2032 32GC,Heat stress days in 2028-2032 32GC (days/yr at this temp) From CMIP 6
+heat_stress_days_33GC_2030,0,NA,2,norm,Heat stress days in 2028-2032 33GC,Heat stress days in 2028-2032 33GC (days/yr at this temp) From CMIP 6
+heat_stress_days_34GC_2030,0,NA,1,norm,Heat stress days in 2028-2032 34GC,Heat stress days in 2028-2032 34GC (days/yr at this temp) From CMIP 6
+heat_stress_days_35GC_2030,0,NA,1,norm,Heat stress days in 2028-2032 35GC,Heat stress days in 2028-2032 35GC (days/yr at this temp) From CMIP 6
+heat_stress_days_36GC_2030,0,NA,1,norm,Heat stress days in 2028-2032 36GC,Heat stress days in 2028-2032 36GC (days/yr at this temp) From CMIP 6
+heat_stress_days_25GC_2035,2,NA,12,norm,Heat stress days in 2033-2037 25GC,Heat stress days in 2033-2037 25GC (days/yr at this temp) From CMIP 6
+heat_stress_days_26GC_2035,2,NA,10,norm,Heat stress days in 2033-2037 26GC,Heat stress days in 2033-2037 26GC (days/yr at this temp) From CMIP 6
+heat_stress_days_27GC_2035,1,NA,8,norm,Heat stress days in 2033-2037 27GC,Heat stress days in 2033-2037 27GC (days/yr at this temp) From CMIP 6
+heat_stress_days_28GC_2035,1,NA,7,norm,Heat stress days in 2033-2037 28GC,Heat stress days in 2033-2037 28GC (days/yr at this temp) From CMIP 6
+heat_stress_days_29GC_2035,0,NA,6,norm,Heat stress days in 2033-2037 29GC,Heat stress days in 2033-2037 29GC (days/yr at this temp) From CMIP 6
+heat_stress_days_30GC_2035,0,NA,5,norm,Heat stress days in 2033-2037 30GC,Heat stress days in 2033-2037 30GC (days/yr at this temp) From CMIP 6
+heat_stress_days_31GC_2035,0,NA,3,norm,Heat stress days in 2033-2037 31GC,Heat stress days in 2033-2037 31GC (days/yr at this temp) From CMIP 6
+heat_stress_days_32GC_2035,0,NA,3,norm,Heat stress days in 2033-2037 32GC,Heat stress days in 2033-2037 32GC (days/yr at this temp) From CMIP 6
+heat_stress_days_33GC_2035,0,NA,2,norm,Heat stress days in 2033-2037 33GC,Heat stress days in 2033-2037 33GC (days/yr at this temp) From CMIP 6
+heat_stress_days_34GC_2035,0,NA,1,norm,Heat stress days in 2033-2037 34GC,Heat stress days in 2033-2037 34GC (days/yr at this temp) From CMIP 6
+heat_stress_days_35GC_2035,0,NA,1,norm,Heat stress days in 2033-2037 35GC,Heat stress days in 2033-2037 35GC (days/yr at this temp) From CMIP 6
+heat_stress_days_36GC_2035,0,NA,1,norm,Heat stress days in 2033-2037 36GC,Heat stress days in 2033-2037 36GC (days/yr at this temp) From CMIP 6
+heat_stress_days_25GC_2040,3,NA,13,norm,Heat stress days in 2038-2042 25GC,Heat stress days in 2038-2042 25GC (days/yr at this temp) From CMIP 6
+heat_stress_days_26GC_2040,2,NA,10,norm,Heat stress days in 2038-2042 26GC,Heat stress days in 2038-2042 26GC (days/yr at this temp) From CMIP 6
+heat_stress_days_27GC_2040,1,NA,9,norm,Heat stress days in 2038-2042 27GC,Heat stress days in 2038-2042 27GC (days/yr at this temp) From CMIP 6
+heat_stress_days_28GC_2040,1,NA,7,norm,Heat stress days in 2038-2042 28GC,Heat stress days in 2038-2042 28GC (days/yr at this temp) From CMIP 6
+heat_stress_days_29GC_2040,0,NA,6,norm,Heat stress days in 2038-2042 29GC,Heat stress days in 2038-2042 29GC (days/yr at this temp) From CMIP 6
+heat_stress_days_30GC_2040,0,NA,5,norm,Heat stress days in 2038-2042 30GC,Heat stress days in 2038-2042 30GC (days/yr at this temp) From CMIP 6
+heat_stress_days_31GC_2040,0,NA,3,norm,Heat stress days in 2038-2042 31GC,Heat stress days in 2038-2042 31GC (days/yr at this temp) From CMIP 6
+heat_stress_days_32GC_2040,0,NA,3,norm,Heat stress days in 2038-2042 32GC,Heat stress days in 2038-2042 32GC (days/yr at this temp) From CMIP 6
+heat_stress_days_33GC_2040,0,NA,2,norm,Heat stress days in 2038-2042 33GC,Heat stress days in 2038-2042 33GC (days/yr at this temp) From CMIP 6
+heat_stress_days_34GC_2040,0,NA,1,norm,Heat stress days in 2038-2042 34GC,Heat stress days in 2038-2042 34GC (days/yr at this temp) From CMIP 6
+heat_stress_days_35GC_2040,0,NA,1,norm,Heat stress days in 2038-2042 35GC,Heat stress days in 2038-2042 35GC (days/yr at this temp) From CMIP 6
+heat_stress_days_36GC_2040,0,NA,1,norm,Heat stress days in 2038-2042 36GC,Heat stress days in 2038-2042 36GC (days/yr at this temp) From CMIP 6
+heat_stress_days_25GC_2045,3,NA,13,norm,Heat stress days in 2043-2047 25GC,Heat stress days in 2043-2047 25GC (days/yr at this temp) From CMIP 6
+heat_stress_days_26GC_2045,2,NA,11,norm,Heat stress days in 2043-2047 26GC,Heat stress days in 2043-2047 26GC (days/yr at this temp) From CMIP 6
+heat_stress_days_27GC_2045,1,NA,9,norm,Heat stress days in 2043-2047 27GC,Heat stress days in 2043-2047 27GC (days/yr at this temp) From CMIP 6
+heat_stress_days_28GC_2045,1,NA,8,norm,Heat stress days in 2043-2047 28GC,Heat stress days in 2043-2047 28GC (days/yr at this temp) From CMIP 6
+heat_stress_days_29GC_2045,0,NA,7,norm,Heat stress days in 2043-2047 29GC,Heat stress days in 2043-2047 29GC (days/yr at this temp) From CMIP 6
+heat_stress_days_30GC_2045,0,NA,5,norm,Heat stress days in 2043-2047 30GC,Heat stress days in 2043-2047 30GC (days/yr at this temp) From CMIP 6
+heat_stress_days_31GC_2045,0,NA,4,norm,Heat stress days in 2043-2047 31GC,Heat stress days in 2043-2047 31GC (days/yr at this temp) From CMIP 6
+heat_stress_days_32GC_2045,0,NA,3,norm,Heat stress days in 2043-2047 32GC,Heat stress days in 2043-2047 32GC (days/yr at this temp) From CMIP 6
+heat_stress_days_33GC_2045,0,NA,3,norm,Heat stress days in 2043-2047 33GC,Heat stress days in 2043-2047 33GC (days/yr at this temp) From CMIP 6
+heat_stress_days_34GC_2045,0,NA,2,norm,Heat stress days in 2043-2047 34GC,Heat stress days in 2043-2047 34GC (days/yr at this temp) From CMIP 6
+heat_stress_days_35GC_2045,0,NA,1,norm,Heat stress days in 2043-2047 35GC,Heat stress days in 2043-2047 35GC (days/yr at this temp) From CMIP 6
+heat_stress_days_36GC_2045,0,NA,1,norm,Heat stress days in 2043-2047 36GC,Heat stress days in 2043-2047 36GC (days/yr at this temp) From CMIP 6
+heat_stress_days_25GC_2050,3,NA,14,norm,Heat stress days in 2048-2052 25GC,Heat stress days in 2048-2052 25GC (days/yr at this temp) From CMIP 6
+heat_stress_days_26GC_2050,2,NA,11,norm,Heat stress days in 2048-2052 26GC,Heat stress days in 2048-2052 26GC (days/yr at this temp) From CMIP 6
+heat_stress_days_27GC_2050,1,NA,9,norm,Heat stress days in 2048-2052 27GC,Heat stress days in 2048-2052 27GC (days/yr at this temp) From CMIP 6
+heat_stress_days_28GC_2050,1,NA,8,norm,Heat stress days in 2048-2052 28GC,Heat stress days in 2048-2052 28GC (days/yr at this temp) From CMIP 6
+heat_stress_days_29GC_2050,0,NA,7,norm,Heat stress days in 2048-2052 29GC,Heat stress days in 2048-2052 29GC (days/yr at this temp) From CMIP 6
+heat_stress_days_30GC_2050,0,NA,5,norm,Heat stress days in 2048-2052 30GC,Heat stress days in 2048-2052 30GC (days/yr at this temp) From CMIP 6
+heat_stress_days_31GC_2050,0,NA,4,norm,Heat stress days in 2048-2052 31GC,Heat stress days in 2048-2052 31GC (days/yr at this temp) From CMIP 6
+heat_stress_days_32GC_2050,0,NA,3,norm,Heat stress days in 2048-2052 32GC,Heat stress days in 2048-2052 32GC (days/yr at this temp) From CMIP 6
+heat_stress_days_33GC_2050,0,NA,3,norm,Heat stress days in 2048-2052 33GC,Heat stress days in 2048-2052 33GC (days/yr at this temp) From CMIP 6
+heat_stress_days_34GC_2050,0,NA,2,norm,Heat stress days in 2048-2052 34GC,Heat stress days in 2048-2052 34GC (days/yr at this temp) From CMIP 6
+heat_stress_days_35GC_2050,0,NA,1,norm,Heat stress days in 2048-2052 35GC,Heat stress days in 2048-2052 35GC (days/yr at this temp) From CMIP 6
+heat_stress_days_36GC_2050,0,NA,1,norm,Heat stress days in 2048-2052 36GC,Heat stress days in 2048-2052 36GC (days/yr at this temp) From CMIP 6
+AF_on_days_25GC_5_10,0,NA,1,norm,AF 5_10 reduction of heat stress days 25GC,AF 5_10 reduction of heat stress days 25GC (days/yr) 
+AF_on_days_25GC_10_15,0,NA,1,norm,AF 10_15 reduction of heat stress days 25GC,AF 10_15 reduction of heat stress days 25GC (days/yr) 
+AF_on_days_25GC_15_20,1,NA,2,norm,AF 15_20 reduction of heat stress days 25GC,AF 15_20 reduction of heat stress days 25GC (days/yr) 
+AF_on_days_25GC_20_25,1,NA,2,norm,AF 20_25 reduction of heat stress days 25GC,AF 20_25 reduction of heat stress days 25GC (days/yr) 
+AF_on_days_26GC_5_10,1,NA,2,norm,AF 5_10 reduction of heat stress days 26GC,AF 5_10 reduction of heat stress days 26GC (days/yr) 
+AF_on_days_26GC_10_15,1,NA,2,norm,AF 10_15 reduction of heat stress days 26GC,AF 10_15 reduction of heat stress days 26GC (days/yr) 
+AF_on_days_26GC_15_20,1,NA,2,norm,AF 15_20 reduction of heat stress days 26GC,AF 15_20 reduction of heat stress days 26GC (days/yr) 
+AF_on_days_26GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 26GC,AF 20_25 reduction of heat stress days 26GC (days/yr) 
+AF_on_days_27GC_5_10,1,NA,2,norm,AF 5_10 reduction of heat stress days 27GC,AF 5_10 reduction of heat stress days 27GC (days/yr) 
+AF_on_days_27GC_10_15,1,NA,2,norm,AF 10_15 reduction of heat stress days 27GC,AF 10_15 reduction of heat stress days 27GC (days/yr) 
+AF_on_days_27GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 27GC,AF 15_20 reduction of heat stress days 27GC (days/yr) 
+AF_on_days_27GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 27GC,AF 20_25 reduction of heat stress days 27GC (days/yr) 
+AF_on_days_28GC_5_10,1,NA,2,norm,AF 5_10 reduction of heat stress days 28GC,AF 5_10 reduction of heat stress days 28GC (days/yr) 
+AF_on_days_28GC_10_15,1,NA,2,norm,AF 10_15 reduction of heat stress days 28GC,AF 10_15 reduction of heat stress days 28GC (days/yr) 
+AF_on_days_28GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 28GC,AF 15_20 reduction of heat stress days 28GC (days/yr) 
+AF_on_days_28GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 28GC,AF 20_25 reduction of heat stress days 28GC (days/yr) 
+AF_on_days_29GC_5_10,1,NA,2,norm,AF 5_10 reduction of heat stress days 29GC,AF 5_10 reduction of heat stress days 29GC (days/yr) 
+AF_on_days_29GC_10_15,2,NA,3,norm,AF 10_15 reduction of heat stress days 29GC,AF 10_15 reduction of heat stress days 29GC (days/yr) 
+AF_on_days_29GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 29GC,AF 15_20 reduction of heat stress days 29GC (days/yr) 
+AF_on_days_29GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 29GC,AF 20_25 reduction of heat stress days 29GC (days/yr) 
+AF_on_days_30GC_5_10,1,NA,2,norm,AF 5_10 reduction of heat stress days 30GC,AF 5_10 reduction of heat stress days 30GC (days/yr) 
+AF_on_days_30GC_10_15,2,NA,3,norm,AF 10_15 reduction of heat stress days 30GC,AF 10_15 reduction of heat stress days 30GC (days/yr) 
+AF_on_days_30GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 30GC,AF 15_20 reduction of heat stress days 30GC (days/yr) 
+AF_on_days_30GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 30GC,AF 20_25 reduction of heat stress days 30GC (days/yr) 
+AF_on_days_31GC_5_10,1,NA,2,norm,AF 5_10 reduction of heat stress days 31GC,AF 5_10 reduction of heat stress days 31GC (days/yr) 
+AF_on_days_31GC_10_15,2,NA,3,norm,AF 10_15 reduction of heat stress days 31GC,AF 10_15 reduction of heat stress days 31GC (days/yr) 
+AF_on_days_31GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 31GC,AF 15_20 reduction of heat stress days 31GC (days/yr) 
+AF_on_days_31GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 31GC,AF 20_25 reduction of heat stress days 31GC (days/yr) 
+AF_on_days_32GC_5_10,2,NA,3,norm,AF 5_10 reduction of heat stress days 32GC,AF 5_10 reduction of heat stress days 32GC (days/yr) 
+AF_on_days_32GC_10_15,2,NA,3,norm,AF 10_15 reduction of heat stress days 32GC,AF 10_15 reduction of heat stress days 32GC (days/yr) 
+AF_on_days_32GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 32GC,AF 15_20 reduction of heat stress days 32GC (days/yr) 
+AF_on_days_32GC_20_25,2,NA,3,norm,AF 20_25 reduction of heat stress days 32GC,AF 20_25 reduction of heat stress days 32GC (days/yr) 
+AF_on_days_33GC_5_10,2,NA,3,norm,AF 5_10 reduction of heat stress days 33GC,AF 5_10 reduction of heat stress days 33GC (days/yr) 
+AF_on_days_33GC_10_15,2,NA,3,norm,AF 10_15 reduction of heat stress days 33GC,AF 10_15 reduction of heat stress days 33GC (days/yr) 
+AF_on_days_33GC_15_20,2,NA,3,norm,AF 15_20 reduction of heat stress days 33GC,AF 15_20 reduction of heat stress days 33GC (days/yr) 
+AF_on_days_33GC_20_25,3,NA,4,norm,AF 20_25 reduction of heat stress days 33GC,AF 20_25 reduction of heat stress days 33GC (days/yr) 
+AF_on_days_34GC_5_10,2,NA,3,norm,AF 5_10 reduction of heat stress days 34GC,AF 5_10 reduction of heat stress days 34GC (days/yr) 
+AF_on_days_34GC_10_15,2,NA,3,norm,AF 10_15 reduction of heat stress days 34GC,AF 10_15 reduction of heat stress days 34GC (days/yr) 
+AF_on_days_34GC_15_20,3,NA,4,norm,AF 15_20 reduction of heat stress days 34GC,AF 15_20 reduction of heat stress days 34GC (days/yr) 
+AF_on_days_34GC_20_25,3,NA,4,norm,AF 20_25 reduction of heat stress days 34GC,AF 20_25 reduction of heat stress days 34GC (days/yr) 
+AF_on_days_35GC_5_10,2,NA,3,norm,AF 5_10 reduction of heat stress days 35GC,AF 5_10 reduction of heat stress days 35GC (days/yr) 
+AF_on_days_35GC_10_15,3,NA,4,norm,AF 10_15 reduction of heat stress days 35GC,AF 10_15 reduction of heat stress days 35GC (days/yr) 
+AF_on_days_35GC_15_20,3,NA,4,norm,AF 15_20 reduction of heat stress days 35GC,AF 15_20 reduction of heat stress days 35GC (days/yr) 
+AF_on_days_35GC_20_25,3,NA,4,norm,AF 20_25 reduction of heat stress days 35GC,AF 20_25 reduction of heat stress days 35GC (days/yr) 
+AF_on_days_36GC_5_10,2,NA,3,norm,AF 5_10 reduction of heat stress days 36GC,AF 5_10 reduction of heat stress days 36GC (days/yr) 
+AF_on_days_36GC_10_15,3,NA,4,norm,AF 10_15 reduction of heat stress days 36GC,AF 10_15 reduction of heat stress days 36GC (days/yr) 
+AF_on_days_36GC_15_20,3,NA,4,norm,AF 15_20 reduction of heat stress days 36GC,AF 15_20 reduction of heat stress days 36GC (days/yr) 
+AF_on_days_36GC_20_25,3,NA,4,norm,AF 20_25 reduction of heat stress days 36GC,AF 20_25 reduction of heat stress days 36GC (days/yr) 
+THI_heat_stress_25GC,0,NA,1.5,norm,Heat stress-inducing THI points 25GC,Heat stress-inducing THI points 25GC (Thermal Heat Index (THI)) 
+THI_heat_stress_26GC,0,NA,2.95,norm,Heat stress-inducing THI points 26GC,Heat stress-inducing THI points 26GC (Thermal Heat Index (THI)) 
+THI_heat_stress_27GC,0,NA,4.4,norm,Heat stress-inducing THI points 27GC,Heat stress-inducing THI points 27GC (Thermal Heat Index (THI)) 
+THI_heat_stress_28GC,0.67,NA,5.86,norm,Heat stress-inducing THI points 28GC,Heat stress-inducing THI points 28GC (Thermal Heat Index (THI)) 
+THI_heat_stress_29GC,1.72,NA,7.31,posnorm,Heat stress-inducing THI points 29GC,Heat stress-inducing THI points 29GC (Thermal Heat Index (THI)) 
+THI_heat_stress_30GC,2.78,NA,8.76,posnorm,Heat stress-inducing THI points 30GC,Heat stress-inducing THI points 30GC (Thermal Heat Index (THI)) 
+THI_heat_stress_31GC,3.84,NA,10.2,posnorm,Heat stress-inducing THI points 31GC,Heat stress-inducing THI points 31GC (Thermal Heat Index (THI)) 
+THI_heat_stress_32GC,4.89,NA,11.7,posnorm,Heat stress-inducing THI points 32GC,Heat stress-inducing THI points 32GC (Thermal Heat Index (THI)) 
+THI_heat_stress_33GC,5.95,NA,13.1,posnorm,Heat stress-inducing THI points 33GC,Heat stress-inducing THI points 33GC (Thermal Heat Index (THI)) 
+THI_heat_stress_34GC,7.01,NA,14.6,posnorm,Heat stress-inducing THI points 34GC,Heat stress-inducing THI points 34GC (Thermal Heat Index (THI)) 
+THI_heat_stress_35GC,8.07,NA,16,posnorm,Heat stress-inducing THI points 35GC,Heat stress-inducing THI points 35GC (Thermal Heat Index (THI)) 
+THI_heat_stress_36GC,9.12,NA,17.5,posnorm,Heat stress-inducing THI points 36GC,Heat stress-inducing THI points 36GC (Thermal Heat Index (THI)) 
+milk_reduction_heat_THI_kg_cow_day,0.2,NA,0.69,norm,Reduction in milk yield per THI point >72,Reduction in milk yield per THI point >72 (%) 
+increased_veterinary_costs_heat_25GC_perc,0.01,NA,0.1,posnorm,Increase in veterinary costs due to heat stress 25GC,Increase in veterinary costs due to heat stress 25GC (% ) 
+increased_veterinary_costs_heat_26GC_perc,0.02,NA,0.12,posnorm,Increase in veterinary costs due to heat stress 26GC,Increase in veterinary costs due to heat stress 26GC (% ) 
+increased_veterinary_costs_heat_27GC_perc,0.03,NA,0.14,posnorm,Increase in veterinary costs due to heat stress 27GC,Increase in veterinary costs due to heat stress 27GC (% ) 
+increased_veterinary_costs_heat_28GC_perc,0.05,NA,0.16,posnorm,Increase in veterinary costs due to heat stress 28GC,Increase in veterinary costs due to heat stress 28GC (% ) 
+increased_veterinary_costs_heat_29GC_perc,0.07,NA,0.18,posnorm,Increase in veterinary costs due to heat stress 29GC,Increase in veterinary costs due to heat stress 29GC (% ) 
+increased_veterinary_costs_heat_30GC_perc,0.09,NA,0.2,posnorm,Increase in veterinary costs due to heat stress 30GC,Increase in veterinary costs due to heat stress 30GC (% ) 
+increased_veterinary_costs_heat_31GC_perc,0.11,NA,0.22,posnorm,Increase in veterinary costs due to heat stress 31GC,Increase in veterinary costs due to heat stress 31GC (% ) 
+increased_veterinary_costs_heat_32GC_perc,0.13,NA,0.24,posnorm,Increase in veterinary costs due to heat stress 32GC,Increase in veterinary costs due to heat stress 32GC (% ) 
+increased_veterinary_costs_heat_33GC_perc,0.15,NA,0.27,posnorm,Increase in veterinary costs due to heat stress 33GC,Increase in veterinary costs due to heat stress 33GC (% ) 
+increased_veterinary_costs_heat_34GC_perc,0.17,NA,0.3,posnorm,Increase in veterinary costs due to heat stress 34GC,Increase in veterinary costs due to heat stress 34GC (% ) 
+increased_veterinary_costs_heat_35GC_perc,0.19,NA,0.33,posnorm,Increase in veterinary costs due to heat stress 35GC,Increase in veterinary costs due to heat stress 35GC (% ) 
+increased_veterinary_costs_heat_36GC_perc,0.21,NA,0.37,posnorm,Increase in veterinary costs due to heat stress 36GC,Increase in veterinary costs due to heat stress 36GC (% ) 
+AF_on_milk_production_AF_5_10_fac,0.95,NA,1.2,posnorm,AF 5_10% reduction of milk production from grazing,AF 5_10% reduction of milk production from grazing (% ) 
+AF_on_milk_production_AF_10_15_fac,0.93,NA,1.3,posnorm,AF 10_15% reduction of milk production from grazing,AF 10_15% reduction of milk production from grazing (% ) 
+AF_on_milk_production_AF_15_20_fac,0.9,NA,1.3,posnorm,AF 15_20% reduction of milk production from grazing,AF 15_20% reduction of milk production from grazing (% ) 
+AF_on_milk_production_AF_20_25_fac,0.88,NA,1.3,posnorm,AF 20_25% reduction of milk production from grazing,AF 20_25% reduction of milk production from grazing (% ) 
+AF_on_seed_costs_after_drought,0.2,NA,0.6,tnorm_0_1,Reduction of additional seed costs after a drought,Reduction of additional seed costs after a drought (% ) 
+EcoB_erosion,0.5,NA,30,norm,Erosion losses,Erosion losses (EUR/ha) 
+AF_on_erosion,0.1,NA,0.5,tnorm_0_1,AF influence on erosion,AF influence on erosion (%) 
+EcoB_groundwater_AF,0,NA,2,norm,OeSE groundwater recharge,OeSE groundwater recharge (EUR/ha) 
+EcoB_carbon_storage_AF,15,NA,30,posnorm,OeSE carbon sequestration,OeSE carbon sequestration (EUR/ha) 
+EcoB_nutrient_loss,14,NA,55,posnorm,OeSK nutrient leaching,OeSK nutrient leaching (EUR/ha) 
+AF_on_nutrient_loss,0.1,NA,0.4,tnorm_0_1,AF reduction of nutrient leaching,AF reduction of nutrient leaching (% ) 
+EcoB_pollination_AF,0,NA,10,norm,OeSE pollination,OeSE pollination (EUR/ha) 
+EcoB_biodiversity_aesthetics,200,NA,800,posnorm,OeSE biodiversity and landscape aesthetics,OeSE biodiversity and landscape aesthetics (EUR/ha) 
