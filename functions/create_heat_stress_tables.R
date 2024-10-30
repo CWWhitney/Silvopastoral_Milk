@@ -183,7 +183,6 @@ heat_table_no_AF_1 <- tibble(
   )
 )
 
-return(list(heat_table_1 = heat_table_1, 
-       heat_table_no_AF_1 = heat_table_no_AF_1))
+return(list(heat_table_no_AF_1 = heat_table_no_AF_1))
 
 }

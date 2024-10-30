@@ -34,22 +34,20 @@ dairy_model <- function(x, varnames) {
   
   # Creating the basic production systems for each run ####
   
-  ## Production area
-  production_area <-  #c(rep(vv(area, var_CV, 1), n_years)) 
-    # production area has by far the most influence. 
-    # Making it constant allows to compare other variables. #####
-  production_area
-  
   ## AF area
-  AF_area_perc <- vv(agroforestry_area_percentage, var_CV, 1)
+  AF_area_perc <- agroforestry_area_percentage
   
   agroforestry_area <-  AF_area_perc *
     production_area
+  
+  ## Cows / Milk #### 
   
   # Grassland yield factor with AF
   grass_yield_fac_AF <- vv(
     ifelse(
       AF_area_perc < 0.1,
+      # effect could be positive or negative 
+      # (mostly positive since cows can also eat poplar leaves)
       AF_on_milk_production_AF_5_10_fac,
       ifelse(
         AF_area_perc < 0.15,
@@ -70,44 +68,49 @@ dairy_model <- function(x, varnames) {
     agroforestry_area
   
   ## Cows per hectare potential
+  # In LSU (.7 to 3.4 EU wide) 'cows' here means livestock units (LSU)
   cows_ha_pot <-  vv(cows_ha, var_CV, n_years)
-  
-  cows_ha_no_AF <- cows_ha_pot
-  
+  # In LSU (same as cows)
   cows_ha_AF <- cows_ha_pot * grass_yield_fac_AF
   
   ## Milk per hectare potential as rep() 
   # so the potential of the herd is the same for the years in a run
-  milk_t_cow <-  c(rep(vv(milk_production_t_cow_a, var_CV, 1), n_years))
+  
+  # milk_production_kg_cow_day = kg/day/cow
+  # convert to annual tons
+  milk_production_t_cow_year <- (milk_production_kg_cow_day * 0.0011) * 365
+  
+  milk_t_cow <- vv(var_mean = milk_production_t_cow_year, 
+                   var_CV = var_CV, 
+                   n = n_years)
   
   milk_t_ha_pot <- milk_t_cow * cows_ha_pot
   
-  #milk_t_ha_pot_no_AF <- milk_t_cow * cows_ha_no_AF
-  #milk_t_ha_pot_AF <- milk_t_cow * cows_ha_AF
-  #milk_t_pot <- milk_t_ha_pot * production_area
-  #milk_t_pot_no_AF <- milk_t_pot
-  #milk_t_pot_AF <- milk_t_ha_pot * grass_area
-  
-  
-  milk_t_ha_pot_loss_comp <- milk_t_ha_pot * (1 + vv(milk_loss_incl_production_perc, 
-                                                     var_CV, n_years)) 
+  # all losses to events including weather etc.
+  milk_t_ha_pot_loss_comp <- chance_event(chance = dairy_risk_events, 
+               value_if_not = milk_t_ha_pot, 
+               value_if =  milk_t_ha_pot * (1 + (milk_loss_incl_production_perc))) 
   # The data of milk yield, is current production data, losses modeled included
-  
-  
+  milk_t_ha_pot_loss_comp # times price per ton milk for result
+
   ## Milk production from grazing
   # potential (pot)
   milk_grazing_perc <- vv(milk_production_grazing_perc, var_CV, 1)
-  
   milk_t_ha_grazing_pot <-  milk_t_ha_pot_loss_comp *
     milk_grazing_perc
-  
   ## Milk production rest
   milk_t_ha_rest_pot <- milk_t_ha_pot_loss_comp -
     milk_t_ha_grazing_pot
   
+  
+  ## relation between heat stress days and THI and redusction in milk prod ####
+  ## Trees #### 
+  
   ## Poplar per hectare potential
   yield_poplar_MS_taDM_ha_pot <-  vv(yield_poplar_MS_taDM_ha_a, 
                                      var_CV, n_years) # Using medium sight conditions, moderate or bad soil condition but moderate or much rain, long periods with no rain have a great effect
+  
+  
   
   # Heat stress + AF on heat stress Tables ####
   
@@ -147,8 +150,8 @@ dairy_model <- function(x, varnames) {
   milk_reduction_kg_cow_sum_no_AF <- rowSums(milk_reduction_stress_kg_cow_no_AF)
   milk_reduction_kg_cow_sum_AF <- rowSums(milk_reduction_stress_kg_cow_AF)
   
-  milk_reduction_t_ha_no_AF <- (milk_reduction_kg_cow_sum_no_AF * cows_ha_no_AF) / 1000
-  milk_reduction_t_ha_AF <- (milk_reduction_kg_cow_sum_AF * cows_ha_no_AF) / 1000
+  milk_reduction_t_ha_no_AF <- (milk_reduction_kg_cow_sum_no_AF * cows_ha_pot) / 1000
+  milk_reduction_t_ha_AF <- (milk_reduction_kg_cow_sum_AF * cows_ha_pot) / 1000
   
   # Heat stress days on veterinary costs ####
   increased_veterinary_costs_heat_day_fac <-  cbind(

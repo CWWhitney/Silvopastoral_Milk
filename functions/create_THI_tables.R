@@ -1,6 +1,10 @@
-## Thermal Heat Index (THI) Tables ####
+## Temperature Humidity Index (THI) Tables ####
 
-create_THI_tables <- function(var_CV, n_years){
+# THI = (1.8 * Tmax + 32) - ((0.55 - 0.0055 * HRmin) * (1.8 * Tmax - 26.8))
+
+ # National research council 1971
+ 
+ create_THI_tables <- function(var_CV, n_years){
   
 THI_table_1 <- tibble(
   THI_stress_25GC = vv(THI_heat_stress_25GC, var_CV, n_years),
