@@ -1,7 +1,7 @@
 # Silvopastoral_Milk
 This R code has been developed as a decision support tool for grassland-based dairy farmers 
 in Eifel region of Germany who are considering the adoption of short rotation coppice (SRC) poplar agroforestry systems. 
-The tool evaluates whether integrating poplar trees into pastureland can provide climate resilience—specifically 
+The tool evaluates whether integrating poplar trees into pastureland can provide climate resilience, specifically 
 in mitigating the adverse impacts of heat and drought on both livestock productivity and farm operating costs.
 
 Agroforestry is modeled here not only as a climate adaptation strategy, 
@@ -32,15 +32,13 @@ Cow Breed Neutrality:
 The model does not assume any specific dairy breed. While different breeds have varying tolerances to heat and 
 drought stress (e.g., in terms of milk production loss, water intake, or mortality rates), 
 this tool is designed to be breed-agnostic to enhance general applicability.
-Users are encouraged to adjust relevant parameters—such as milk yield reductions, 
-heat tolerance thresholds, or mortality rates—to reflect the breed(s) specific to their operation in the input_table.csv.
+Users are encouraged to adjust relevant parameters such as milk yield reductions, 
+heat tolerance thresholds, or mortality rates to reflect the breed(s) specific to their operation in the input_table.csv.
 
+This code is suitable for:
 
-Suggested Use
-This tool is suitable for:
+Farmers - to evaluate trade-offs of adopting agroforestry for their grassland.
 
-Farmers evaluating trade-offs of adopting agroforestry for their grassland.
+Researchers or extension agents - to modeling climate resilience strategies in dairy systems.
 
-Researchers or extension agents modeling climate resilience strategies in dairy systems.
-
-Policymakers or advisors seeking evidence-based justifications for agroforestry incentives.
+Policymakers or advisors - seek evidence-based justifications for agroforestry incentives.
